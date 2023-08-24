@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package version="2.0" unique-identifier="bookid" xmlns="http://www.idpf.org/2007/opf">
+	<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <meta name="cover" content="cover-image"/>
+    <dc:title>{book.title}</dc:title>
+    <dc:language>zh-CN</dc:language>
+    <dc:date>{book.date}</dc:date>
+    <dc:rights>{book.copyright}</dc:rights>
+    <dc:identifier id="bookid">{book.id}</dc:identifier>
+  </metadata>
+  <manifest>
+    <item media-type="text/css" href="htmls/res/style.css" id="css"/>
+    <item media-type="image/jpeg" href="htmls/res/cover.jpg" id="cover-image"/>
+    <item media-type="application/x-dtbncx+xml" href="toc.ncx" id="ncxtoc"/>
+    <item media-type="application/xhtml+xml" id="p-cover" href="htmls/cover.html"/>
+<!-- content.image
+	<item media-type="image/jpeg" id="i-{page.no}-{img.no}" href="imgs/{page.title}/{img.no}.jpg"/>
+-->
+{content.images}
+
+<!-- content.page
+    <item media-type="application/xhtml+xml" id="p-{page.no}" href="htmls/{page.title}.html"/>
+-->
+{content.pages}
+
+  </manifest>
+  
+  <spine toc="ncxtoc">
+  <itemref idref="p-cover" linear="yes"/>
+<!-- content.ref
+	<itemref idref="p-{page.no}" linear="yes"/>
+-->
+{content.refs}
+
+  </spine>
+
+  <guide>
+    <reference type="cover" title="Cover" href="htmls/cover.html"/>
+    <reference type="text" title="Start" href="htmls/cover.html"/>
+  </guide>
+ 
+</package>
